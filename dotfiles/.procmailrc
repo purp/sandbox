@@ -1,0 +1,60 @@
+# Environment settings
+PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+UMASK=077
+
+# Procmail settings
+MAILDIR=$HOME/mail
+LOGFILE=logs/procmail
+ORGMAIL=utter_FAIL
+LINEBUF=4096
+
+# Debugging
+VERBOSE=off
+
+# Custom settings
+MONTHLY_ARCHIVE=archives/`date +maillog.%Y-%m`
+
+
+### BAD MAIL
+
+# No duplicate emails, please
+:0 Wh: msgid.lock
+| formail -D 16384 .msgid.cache
+
+:0 a:
+archives/dupes
+
+### FILE AND FORGET (don't archive)
+
+# Site Feedback
+:0:
+* Subject:.*\[Site Feedback\]
+99_site_feedback
+
+# oauth
+:0:
+* ^Mailing-List:.*oauth@
+90_oauth
+
+# diso
+:0:
+* ^List-Id:.*diso-project
+91_diso
+
+# LED
+:0:
+* ^(To|Cc):.*eng-light@
+80_led
+
+### ROUTINE MAIL (archive, then deliver)
+
+# Archive everything by month
+:0 c
+$MONTHLY_ARCHIVE
+
+# Other interesting filters here
+
+# If you've made it this far, into the general inbox you go.
+:0:
+00_INBOX
+

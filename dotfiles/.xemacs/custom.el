@@ -1,0 +1,17 @@
+(custom-set-variables
+ '(gutter-buffers-tab-visible-p nil)
+ '(delete-key-deletes-forward 1)
+ '(perl-indent-level 4)
+ '(tab-width 4)
+ '(cperl-indent-level 4)
+ '(cperl-invalid-face (quote default))
+ '(c-basic-offset 4)
+ '(py-indent-offset 2)
+ '(user-mail-address "jm@tippett.com")
+ '(query-user-mail-address nil)
+ '(indent-tabs-mode nil))
+(custom-set-faces
+ '(cperl-hash-face ((((class color) (background light)) (:foreground "Red" :bold t)))))
+(setq auto-mode-alist (append '( ("\\.s\\'" . c-mode)) auto-mode-alist))
+(setq auto-mode-alist (append '( ("\\.adb\\'" . c-mode)) auto-mode-alist))
+(setq auto-mode-alist (append '( ("\\.n3\\'" . n3-mode)) auto-mode-alist))

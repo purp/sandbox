@@ -1,0 +1,59 @@
+# Utilitarian
+alias a      alias
+a ls         'ls -CFv'
+a l          'ls -l'
+a la         'l -a'
+a ll         'ls -al'
+a sa         'source ~/.aliases'
+a sc         'source ~/.cshrc'
+a scomp      'source ~/.complete'
+a chenv      'mate ~/{.aliases,.cshrc,.complete}'
+a vpnfix     'sudo /System/Library/StartupItems/CiscoVPN/CiscoVPN restart'
+a scpresume  'rsync --partial --progress --rsh=ssh'
+
+# Application shortcuts
+a less       '\less -X'
+a ssh        'ssh -2 -A'
+a vncstart   'vncserver -geometry 1152x864 -depth 16'
+a edit       'mate \!*'
+a gdiff      '/Applications/DiffMerge.app/Contents/MacOS/DiffMerge \!*'
+a ri         'ri -Tf ansi'
+
+if (-x /usr/games/fortune) then
+    a fortune    /usr/games/fortune
+endif
+
+# XTerm Trickery
+### Translate this to Apple's Terminal.app?
+a xt         'xterm -fg white \!*'
+a rxt        'xt -bg \#886666 \!*'
+a gxt        'xt -bg \#668866 \!*'
+a bxt        'xt -bg \#666688 \!*'
+a trxt       'rxt -geom 80x20 -fn -misc-fixed-medium-r-normal--6-60-75-75-c-40-iso8859-1 \!*'
+a tgxt       'gxt -geom 80x20 -fn -misc-fixed-medium-r-normal--6-60-75-75-c-40-iso8859-1 \!*'
+a tbxt       'bxt -geom 80x20 -fn -misc-fixed-medium-r-normal--6-60-75-75-c-40-iso8859-1 \!*'
+a hrxt       'rxt -e ssh \!* &'
+a hgxt       'gxt -e ssh \!* &'
+a hbxt       'bxt -e ssh \!* &'
+a lwin       'tgxt -e ssh \!* &'
+
+# Development tools
+a newsrc     'touch \!*; chmod a+x \!*; mate \!*'
+a wcd        'eval `~/bin/workdir_cd \!*`'
+a wed        'wcd \!* && edit .'
+a mrs        'mongrel_rails start \!*'
+a llog       'less -NR log/development.log'
+
+# Unaliases
+a ua         unalias
+ua rm vi
+
+### # Nifty ways to query rpm
+### a rpmname 'rpm -q --qf "%{NAME}-%{VERSION}-%{RELEASE}.%{ARCH}.rpm\n" \!*'
+### a rpminfo 'rpm -q --qf "%{NAME} %{VERSION} %{RELEASE} %{ARCH}\n" \!*'
+
+# Open a gem in TextMate
+setenv TM_GEMDIR "`gem environment gemdir`/gems"
+a mategem 'mate $TM_GEMDIR/\!*'
+complete mategem "p@*@D:$TM_GEMDIR@"
+

@@ -1,0 +1,78 @@
+! Parts (C) 1996 By Greg J. Badros <gjb@cs.duke.edu>
+! Modification for Linux-Mandrake by Chmouel Boudjnah <chmouel@mandraksoft.com>
+! You may use this file as specified under the GNU General Public License
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! emacs, xemacs
+
+! emacs*Background: DarkSlateGray
+! emacs*Foreground: Wheat
+! emacs*pointerColor: Orchid
+! emacs*cursorColor: Orchid
+! emacs*bitmapIcon: on
+xemacs.geometry: 81x60
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! xterm (and friends)
+
+XTerm*highlightSelection:  true
+! Uncomment this to use color for the bold attribute
+XTerm*VT100*colorBDMode:  on
+XTerm*VT100*colorBD:  blue
+! Uncomment this to use color for underline attribute
+XTerm.VT100*colorULMode:  on
+XTerm.VT100*underLine:  off
+XTerm*VT100*colorUL:  magenta
+! Uncomment this to display the scrollbar 
+XTerm*scrollBar:  true
+
+! This resource specifies whether or not to ignore the 'alternate screen'
+! of applications such as vi.  When it is on, these applications will restore
+! the contents of the screen when they are exited to what they were before
+! they were started.  When it is off, the contents of vi will remain on the
+! screen after the program is quit.
+XTerm.VT100.titeInhibit:  false
+
+! Uncomment this to turn off color mode in your xterms
+!XTerm.VT100*colorMode:  off
+XTerm.VT100*dynamicColors:  on
+XTerm.VT100*translations: #override \n\
+    Shift Ctrl <Key>-:smaller-vt-font() \n\
+    Shift Ctrl <Key>=:larger-vt-font()
+
+! Number of lines of scrollback to save
+xterm*saveLines:	10000
+xterm*background:	slategray4
+xterm*foreground:	white
+xterm*font:		lucidasanstypewriter-9
+
+xterm*reverseWrap:	true
+xterm*geometry:		80x40
+
+*visualBell:		true
+*scrollTtyOutput:	False
+*scrollKey:		True
+Scrollbar.JumpCursor:	True
+
+! Suppr support.
+! *VT100.Translations: #override \
+! <Key>BackSpace: string(0x7F)\n\
+! <Key>Delete: string("\033[3~")\n\
+! <Key>Home: string("\033[1~")\n\
+! <Key>End: string("\033[4~")
+
+! GVim great Colors.
+! Vim*background:	black
+! Vim*foreground:	lightyellow
+! Vim*font:		-misc-fixed-medium-r-normal--20-200-75-75-c-100-iso8859-15-*5
+! Vim*geometry:	88x35
+! Vim*menuBackground: black
+! Vim*menuForeground: moccasin
+
+xscreensaver*timeout:	10
+xscreensaver*cycle:	0
+xscreensaver*lock:	True
+xscreensaver*nice:	70
+xscreensaver*unfade:	True
+
+
